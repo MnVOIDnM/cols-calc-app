@@ -13,8 +13,11 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "framer-motion": "^9.0.1",
+    "mersenne-twister": "^1.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-signature-canvas": "^1.0.6",
+    "react-simple-keyboard": "^3.5.24"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
