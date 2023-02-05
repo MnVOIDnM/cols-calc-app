@@ -18,8 +18,9 @@
 }
 
 .simple-keyboard {
-  max-width: 320px;
-  min-width: 170px;
+  max-width: 360px;
+  min-width: 250px;
+  font-size: x-large;
 }
 
 .sigPad {

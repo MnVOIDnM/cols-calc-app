@@ -1,15 +1,33 @@
-import React, { useState, useRef } from "react";
-import { Heading, Input } from "@chakra-ui/react";
+import React, { useRef, useContext } from "react";
+import { Heading, Input, VStack } from "@chakra-ui/react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import { CounterContext, InputContext, QuestionContext } from "../../App";
+import { getRandom } from "../../helper";
 
 const Numpad = () => {
-  const [input, setInput] = useState("");
+  const { input, setInput } = useContext(InputContext);
+  const { firstNum, setFirstNum, secondNum, setSecondNum } =
+    useContext(QuestionContext);
+  const { count, setCount } = useContext(CounterContext);
   const keyboard = useRef();
+
+  const updateQuestion = () => {
+    setCount((prev) => prev + 1);
+    setFirstNum(() => getRandom(2, 9));
+    setSecondNum(() => getRandom(1, 1));
+    setInput("");
+    keyboard.current.clearInput();
+  };
 
   const onChange = (input) => {
     setInput(input);
-    console.log("Input changed", input);
+    // console.log(input);
+    if (input == firstNum * secondNum && count < 9) {
+      updateQuestion();
+    } else if (input == firstNum * secondNum && count == 9) {
+      setCount((prev) => prev + 1);
+    }
   };
 
   const onKeyPress = (button) => {
@@ -25,7 +43,7 @@ const Numpad = () => {
   };
 
   return (
-    <>
+    <VStack pt={1} h="90vh">
       <Heading>答え</Heading>
       <Input
         className="inputAnswer"
@@ -37,6 +55,7 @@ const Numpad = () => {
         keyboardRef={(r) => (keyboard.current = r)}
         layout={{
           default: ["{deleteAll} {bksp}", "1 2 3", "4 5 6", "7 8 9", ". 0"],
+          shift: ["{deleteAll} {bksp}", "7 8 9", "4 5 6", "1 2 3", ". 0"],
         }}
         display={{
           "{bksp}": "一つ消す",
@@ -45,7 +64,7 @@ const Numpad = () => {
         onChange={onChange}
         onKeyPress={onKeyPress}
       />
-    </>
+    </VStack>
   );
 };
 

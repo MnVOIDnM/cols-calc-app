@@ -1,7 +1,8 @@
 import SignatureCanvas from "react-signature-canvas";
 import { useRef, useCallback, useState } from "react";
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import "../../index.css";
+import Question from "./Question";
 
 const Canvas = () => {
   const padRef = useRef(null);
@@ -16,7 +17,7 @@ const Canvas = () => {
     <>
       <Box h="80vh" zIndex={2}>
         <Button colorScheme="red" onClick={clearCanvas}>
-          けす
+          消す
         </Button>
         <SignatureCanvas
           ref={padRef}
@@ -28,22 +29,7 @@ const Canvas = () => {
           canvasProps={{ className: "sigPad" }}
         />
       </Box>
-      <Text
-        pos="absolute"
-        zIndex={1}
-        userSelect={"none"}
-        top="12%"
-        left="15%"
-        fontSize="110px"
-        fontFamily="mono"
-        lineHeight="90%"
-        width="280px"
-        height="210px"
-        textAlign="right"
-        borderBottom="5px solid"
-      >
-        {`765\n×983`}
-      </Text>
+      <Question />
     </>
   );
 };
