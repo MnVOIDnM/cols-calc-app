@@ -4,12 +4,10 @@ import Calc from "./Calc";
 
 function App() {
   return (
-    <div>
-      <HStack>
-        <Calc />
-        <Answer />
-      </HStack>
-    </div>
+    <HStack>
+      <Calc />
+      <Answer />
+    </HStack>
   );
 }
 

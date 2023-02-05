@@ -1,7 +1,5 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -10,7 +8,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-input {
+.inputAnswer {
   width: 100%;
   height: 100px;
   padding: 20px;
@@ -21,4 +19,10 @@ input {
 
 .simple-keyboard {
   max-width: 320px;
+  min-width: 170px;
+}
+
+.sigPad {
+  width: 500px;
+  height: 100%;
 }

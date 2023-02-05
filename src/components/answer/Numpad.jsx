@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Heading, Input } from "@chakra-ui/react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
@@ -12,29 +13,34 @@ const Numpad = () => {
   };
 
   const onKeyPress = (button) => {
-    console.log("Button pressed", button);
+    if (button === "{deleteAll}") {
+      keyboard.current.clearInput();
+    }
   };
 
-  const onChangeInput = (event) => {
-    const input = event.target.value;
+  const onChangeInput = (e) => {
+    const input = e.target.value;
     setInput(input);
     keyboard.current.setInput(input);
   };
 
   return (
     <>
-      <input
+      <Heading>答え</Heading>
+      <Input
+        className="inputAnswer"
         value={input}
-        placeholder={"Tap on the virtual keyboard to start"}
         onChange={onChangeInput}
+        isReadOnly={true}
       />
       <Keyboard
         keyboardRef={(r) => (keyboard.current = r)}
         layout={{
-          default: ["1 2 3", "4 5 6", "7 8 9", ". 0 {bksp}"],
+          default: ["{deleteAll} {bksp}", "1 2 3", "4 5 6", "7 8 9", ". 0"],
         }}
         display={{
-          "{bksp}": "x",
+          "{bksp}": "一つ消す",
+          "{deleteAll}": "全て消す",
         }}
         onChange={onChange}
         onKeyPress={onKeyPress}
