@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { QuestionContext } from "../../App";
+import { QuestionContext } from "../../Contexts";
 
 const Question = () => {
   const { firstNum, secondNum } = useContext(QuestionContext);
@@ -13,7 +13,7 @@ const Question = () => {
       top="90px"
       left="180px"
       fontSize="110px"
-      fontFamily="mono"
+      // fontFamily="mono"
       lineHeight="90%"
       width="270px"
       height="210px"

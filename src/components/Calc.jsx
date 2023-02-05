@@ -1,7 +1,7 @@
-import { Progress, VStack, HStack, Heading } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { CounterContext } from "./App";
-import Canvas from "./components/calc/Canvas";
+import { Progress, VStack, HStack, Heading } from "@chakra-ui/react";
+import { CounterContext } from "../Contexts";
+import Canvas from "./calc/Canvas";
 
 const Calc = () => {
   const { count } = useContext(CounterContext);

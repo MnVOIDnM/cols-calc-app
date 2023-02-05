@@ -2,10 +2,10 @@ import React, { useRef, useContext } from "react";
 import { Heading, Input, VStack } from "@chakra-ui/react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-import { CounterContext, InputContext, QuestionContext } from "../../App";
+import { CounterContext, InputContext, QuestionContext } from "../../Contexts";
 import { getRandom } from "../../helper";
 
-const Numpad = () => {
+const Numpad = ({ onOpen }) => {
   const { input, setInput } = useContext(InputContext);
   const { firstNum, setFirstNum, secondNum, setSecondNum } =
     useContext(QuestionContext);
@@ -27,6 +27,7 @@ const Numpad = () => {
       updateQuestion();
     } else if (input == firstNum * secondNum && count == 9) {
       setCount((prev) => prev + 1);
+      onOpen();
     }
   };
 
