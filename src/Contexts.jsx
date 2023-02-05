@@ -26,8 +26,8 @@ export const InputProvider = ({ children }) => {
 };
 
 export const QuestionProvider = ({ children }) => {
-  const [firstNum, setFirstNum] = useState(getRandom(2, 10));
-  const [secondNum, setSecondNum] = useState(getRandom(10, 10));
+  const [firstNum, setFirstNum] = useState(getRandom(2, 200));
+  const [secondNum, setSecondNum] = useState(getRandom(10, 99));
 
   return (
     <QuestionContext.Provider

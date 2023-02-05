@@ -14,8 +14,8 @@ const Numpad = ({ onOpen }) => {
 
   const updateQuestion = () => {
     setCount((prev) => prev + 1);
-    setFirstNum(() => getRandom(2, 9));
-    setSecondNum(() => getRandom(1, 1));
+    setFirstNum(() => getRandom(2, 200));
+    setSecondNum(() => getRandom(10, 99));
     setInput("");
     keyboard.current.clearInput();
   };
